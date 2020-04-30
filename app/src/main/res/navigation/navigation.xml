@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/homePageFragment">
+
+    <fragment
+        android:id="@+id/homePageFragment"
+        android:name="com.example.navigationdemo.ui.HomePageFragment"
+        android:label="HomePageFragment"
+        tools:layout="@layout/fragment_menu_list">
+        <action
+            android:id="@+id/action_homePageFragment_to_goNextPageSampleFragment"
+            app:destination="@id/goNextPageSampleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/goNextPageSampleFragment"
+        android:name="com.example.navigationdemo.ui.GoNextPageSampleFragment"
+        android:label="GoNextPageSampleFragment"
+        tools:layout="@layout/fragment_menu_list">
+        <action
+            android:id="@+id/action_goNextPageSampleFragment_to_simpleTargetFragment"
+            app:destination="@id/simpleTargetFragment" />
+        <action
+            android:id="@+id/action_goNextPageSampleFragment_to_targetWithArgFragment"
+            app:destination="@id/targetWithArgFragment" />
+        <action
+            android:id="@+id/action_goNextPageSampleFragment_to_targetReturnArgFragment"
+            app:destination="@id/targetReturnArgFragment" />
+        <action
+            android:id="@+id/action_goNextPageSampleFragment_to_navigation2"
+            app:destination="@id/navigation2" />
+        <!--        <action-->
+        <!--            android:id="@+id/action_goNextPageSampleFragment_to_deepLinkFragment"-->
+        <!--            app:destination="@id/deepLinkFragment" />-->
+    </fragment>
+    <fragment
+        android:id="@+id/simpleTargetFragment"
+        android:name="com.example.navigationdemo.ui.target.SimpleTargetFragment"
+        android:label="SimpleTargetFragment"
+        tools:layout="@layout/fragment_target" />
+    <fragment
+        android:id="@+id/targetWithArgFragment"
+        android:name="com.example.navigationdemo.ui.target.TargetWithArgFragment"
+        android:label="TargetWithArgFragment"
+        tools:layout="@layout/fragment_target">
+        <argument
+            android:name="textArg"
+            android:defaultValue="null"
+            app:argType="string" />
+        <argument
+            android:name="intArg"
+            android:defaultValue="0"
+            app:argType="integer" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_simpleTargetFragment"
+        app:destination="@id/simpleTargetFragment" />
+    <fragment
+        android:id="@+id/targetReturnArgFragment"
+        android:name="com.example.navigationdemo.ui.target.TargetReturnArgFragment"
+        android:label="TargetReturnArgFragment"
+        tools:layout="@layout/fragment_target_return_arg" />
+    <navigation
+        android:id="@+id/navigation2"
+        app:startDestination="@id/nestedGraph01Fragment">
+        <fragment
+            android:id="@+id/nestedGraph01Fragment"
+            android:name="com.example.navigationdemo.ui.nestedgraph.NestedGraph01Fragment"
+            android:label="NestedGraph01Fragment"
+            tools:layout="@layout/fragment_target">
+            <action
+                android:id="@+id/action_nestedGraph01Fragment_to_nestedGraph02Fragment"
+                app:destination="@id/nestedGraph02Fragment" />
+        </fragment>
+        <fragment
+            android:id="@+id/nestedGraph02Fragment"
+            android:name="com.example.navigationdemo.ui.nestedgraph.NestedGraph02Fragment"
+            android:label="NestedGraph02Fragment"
+            tools:layout="@layout/fragment_target" />
+    </navigation>
+    <fragment
+        android:id="@+id/deepLinkFragment"
+        android:name="com.example.navigationdemo.ui.deeplink.DeepLinkFragment"
+        android:label="DeepLinkFragment"
+        tools:layout="@layout/fragment_target">
+        <deepLink
+            android:id="@+id/deepLink"
+            android:autoVerify="true"
+            app:uri="test://navigationdemo.com/deeplink/target" />
+    </fragment>
+    <fragment
+        android:id="@+id/deepLinkWithArgFragment"
+        tools:layout="@layout/fragment_target"
+        android:name="com.example.navigationdemo.ui.deeplink.DeepLinkWithArgFragment"
+        android:label="DeepLinkWithArgFragment">
+        <argument
+            android:name="textArg"
+            android:defaultValue="null"
+            app:argType="string" />
+        <argument
+            android:name="intArg"
+            android:defaultValue="0"
+            app:argType="string" />
+        <deepLink
+            android:id="@+id/deepLink"
+            android:autoVerify="true"
+            app:uri="test://navigationdemo.com/deeplink/target2?textArg={textArg}&amp;intArg={intArg}" />
+    </fragment>
+</navigation>
