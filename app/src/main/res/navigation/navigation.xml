@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_homePageFragment_to_goNextPageSampleFragment"
             app:destination="@id/goNextPageSampleFragment" />
+        <action
+            android:id="@+id/action_homePageFragment_to_navigation_ui_sample"
+            app:destination="@+id/navigation_ui_sample" />
     </fragment>
     <fragment
         android:id="@+id/goNextPageSampleFragment"
@@ -92,9 +95,9 @@
     </fragment>
     <fragment
         android:id="@+id/deepLinkWithArgFragment"
-        tools:layout="@layout/fragment_target"
         android:name="com.example.navigationdemo.ui.deeplink.DeepLinkWithArgFragment"
-        android:label="DeepLinkWithArgFragment">
+        android:label="DeepLinkWithArgFragment"
+        tools:layout="@layout/fragment_target">
         <argument
             android:name="textArg"
             android:defaultValue="null"
@@ -108,4 +111,5 @@
             android:autoVerify="true"
             app:uri="test://navigationdemo.com/deeplink/target2?textArg={textArg}&amp;intArg={intArg}" />
     </fragment>
+    <include app:graph="@navigation/navigation_ui_sample" />
 </navigation>

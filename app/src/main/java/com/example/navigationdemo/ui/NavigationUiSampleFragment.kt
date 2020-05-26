@@ -8,7 +8,7 @@ import com.example.navigationdemo.entity.MenuItem
 import com.example.navigationdemo.ui.adapter.MenuListAdapter
 import kotlinx.android.synthetic.main.fragment_menu_list.*
 
-class HomePageFragment : BaseFragment() {
+class NavigationUiSampleFragment : BaseFragment() {
     override fun getLayoutId(): Int = R.layout.fragment_menu_list
     private val adapter by lazy {
         MenuListAdapter()
@@ -18,13 +18,9 @@ class HomePageFragment : BaseFragment() {
         recycler_view.adapter = adapter
         adapter.setNewData(
             mutableListOf(
-                MenuItem("go next page") {
+                MenuItem("show bottom navigation view") {
                     val action =
-                        HomePageFragmentDirections.actionHomePageFragmentToGoNextPageSampleFragment()
-                    findNavController().navigate(action, defaultAnimOption)
-                }, MenuItem("navigation ui") {
-                    val action =
-                        HomePageFragmentDirections.actionHomePageFragmentToNavigationUiSample()
+                        NavigationUiSampleFragmentDirections.actionNavigationUiSampleFragmentToBottomNavigationFragment()
                     findNavController().navigate(action, defaultAnimOption)
                 }
             )

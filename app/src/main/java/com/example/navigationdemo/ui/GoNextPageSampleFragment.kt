@@ -7,6 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.navigationdemo.R
 import com.example.navigationdemo.base.BaseFragment
+import com.example.navigationdemo.defaultAnimOption
 import com.example.navigationdemo.entity.MenuItem
 import com.example.navigationdemo.ui.adapter.MenuListAdapter
 import com.example.navigationdemo.ui.target.viewmodel.TargetReturnArgViewModel
@@ -44,7 +45,7 @@ class GoNextPageSampleFragment : BaseFragment() {
                     bundle.putInt("intArg", 6)
                     findNavController().navigate(
                         R.id.action_goNextPageSampleFragment_to_targetWithArgFragment,
-                        bundle
+                        bundle, defaultAnimOption
                     )
                 },
                 MenuItem("navigate with safe args and action") {
@@ -53,25 +54,37 @@ class GoNextPageSampleFragment : BaseFragment() {
                             "test text",
                             6
                         )
-                    findNavController().navigate(action)
+                    findNavController().navigate(action, defaultAnimOption)
                 },
                 MenuItem("navigate with global action") {
-                    findNavController().navigate(R.id.action_global_simpleTargetFragment)
+                    findNavController().navigate(
+                        R.id.action_global_simpleTargetFragment, null,
+                        defaultAnimOption
+                    )
                 },
                 MenuItem("navigate with return argument") {
-                    findNavController().navigate(R.id.action_goNextPageSampleFragment_to_targetReturnArgFragment)
+                    findNavController().navigate(
+                        R.id.action_goNextPageSampleFragment_to_targetReturnArgFragment, null,
+                        defaultAnimOption
+                    )
                 },
                 MenuItem("navigate to nested graph") {
-                    findNavController().navigate(R.id.action_goNextPageSampleFragment_to_navigation2)
+                    findNavController().navigate(
+                        R.id.action_goNextPageSampleFragment_to_navigation2, null,
+                        defaultAnimOption
+                    )
                 },
                 MenuItem("navigate to deep link") {
-                    findNavController().navigate(Uri.parse("test://navigationdemo.com/deeplink/target"))
+                    findNavController().navigate(
+                        Uri.parse("test://navigationdemo.com/deeplink/target"),
+                        defaultAnimOption
+                    )
                 },
                 MenuItem("navigate to deep link with argument") {
                     // https://stackoverflow.com/questions/50887228/jetpack-navigation-deeplink-with-query-parameters  参照此解决 deep link 带多个参数的问题
                     val uri =
                         Uri.parse("test://navigationdemo.com/deeplink/target2?textArg=aaa&intArg=222")
-                    findNavController().navigate(uri)
+                    findNavController().navigate(uri, defaultAnimOption)
                 }
             )
         )

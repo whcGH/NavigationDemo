@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_ui_sample"
+    app:startDestination="@id/navigationUiSampleFragment">
+
+    <fragment
+        android:id="@+id/navigationUiSampleFragment"
+        android:name="com.example.navigationdemo.ui.NavigationUiSampleFragment"
+        android:label="NavigationUiSampleFragment"
+        tools:layout="@layout/fragment_menu_list">
+        <action
+            android:id="@+id/action_navigationUiSampleFragment_to_bottomNavigationFragment"
+            app:destination="@id/bottomNavigationFragment" />
+    </fragment>
+    <navigation
+        android:id="@+id/navigation3"
+        app:startDestination="@id/tab1">
+        <fragment
+            android:id="@+id/tab2"
+            android:name="com.example.navigationdemo.ui.bottom_navigation_page.BottomNavigationPage2Fragment"
+            android:label="BottomNavigationPage2Fragment" />
+        <fragment
+            android:id="@+id/tab1"
+            android:name="com.example.navigationdemo.ui.bottom_navigation_page.BottomNavigationPage1Fragment"
+            android:label="BottomNavigationPage1Fragment" />
+        <fragment
+            android:id="@+id/tab3"
+            android:name="com.example.navigationdemo.ui.bottom_navigation_page.BottomNavigationPage3Fragment"
+            android:label="BottomNavigationPage3Fragment" />
+    </navigation>
+    <action
+        android:id="@+id/action_global_navigation3"
+        app:destination="@id/navigation3" />
+    <fragment
+        android:id="@+id/bottomNavigationFragment"
+        android:name="com.example.navigationdemo.ui.bottom_navigation_page.BottomNavigationFragment"
+        android:label="BottomNavigationFragment"
+        tools:layout="@layout/fragment_bottom_navigation" />
+</navigation>

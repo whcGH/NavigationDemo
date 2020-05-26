@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="action_anim">
+        <item name="enterAnim">@anim/anim_right_in</item>
+        <item name="exitAnim">@anim/anim_left_out</item>
+        <item name="popEnterAnim">@anim/anim_left_in</item>
+        <item name="popExitAnim">@anim/anim_right_out</item>
+    </style>
+
 </resources>
