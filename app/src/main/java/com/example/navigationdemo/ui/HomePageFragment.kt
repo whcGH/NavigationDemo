@@ -3,7 +3,6 @@ package com.example.navigationdemo.ui
 import androidx.navigation.fragment.findNavController
 import com.example.navigationdemo.R
 import com.example.navigationdemo.base.BaseFragment
-import com.example.navigationdemo.defaultAnimOption
 import com.example.navigationdemo.entity.MenuItem
 import com.example.navigationdemo.ui.adapter.MenuListAdapter
 import kotlinx.android.synthetic.main.fragment_menu_list.*
@@ -22,7 +21,8 @@ class HomePageFragment : BaseFragment() {
                     val action =
                         HomePageFragmentDirections.actionHomePageFragmentToGoNextPageSampleFragment()
                     findNavController().navigate(action, defaultAnimOption)
-                }, MenuItem("navigation ui") {
+                },
+                MenuItem("navigation ui") {
                     val action =
                         HomePageFragmentDirections.actionHomePageFragmentToNavigationUiSample()
                     findNavController().navigate(action, defaultAnimOption)

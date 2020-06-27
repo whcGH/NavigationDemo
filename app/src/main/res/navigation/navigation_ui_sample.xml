@@ -13,6 +13,9 @@
         <action
             android:id="@+id/action_navigationUiSampleFragment_to_bottomNavigationFragment"
             app:destination="@id/bottomNavigationFragment" />
+        <action
+            android:id="@+id/action_navigationUiSampleFragment_to_shareElement01Fragment"
+            app:destination="@id/shareElement01Fragment" />
     </fragment>
     <navigation
         android:id="@+id/navigation3"
@@ -38,4 +41,18 @@
         android:name="com.example.navigationdemo.ui.bottom_navigation_page.BottomNavigationFragment"
         android:label="BottomNavigationFragment"
         tools:layout="@layout/fragment_bottom_navigation" />
+    <fragment
+        android:id="@+id/shareElement01Fragment"
+        android:name="com.example.navigationdemo.ui.share_element.ShareElement01Fragment"
+        android:label="ShareElement01Fragment"
+        tools:layout="@layout/fragment_share_element01">
+        <action
+            android:id="@+id/action_shareElement01Fragment_to_shareElement02Fragment"
+            app:destination="@id/shareElement02Fragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shareElement02Fragment"
+        android:name="com.example.navigationdemo.ui.share_element.ShareElement02Fragment"
+        android:label="ShareElement02Fragment"
+        tools:layout="@layout/fragment_share_element02" />
 </navigation>

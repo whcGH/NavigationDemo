@@ -1,9 +1,10 @@
 package com.example.navigationdemo.ui
 
+import androidx.navigation.fragment.FragmentNavigatorExtras
 import androidx.navigation.fragment.findNavController
+import com.example.navigationdemo.NavigationUiSampleDirections
 import com.example.navigationdemo.R
 import com.example.navigationdemo.base.BaseFragment
-import com.example.navigationdemo.defaultAnimOption
 import com.example.navigationdemo.entity.MenuItem
 import com.example.navigationdemo.ui.adapter.MenuListAdapter
 import kotlinx.android.synthetic.main.fragment_menu_list.*
@@ -22,6 +23,16 @@ class NavigationUiSampleFragment : BaseFragment() {
                     val action =
                         NavigationUiSampleFragmentDirections.actionNavigationUiSampleFragmentToBottomNavigationFragment()
                     findNavController().navigate(action, defaultAnimOption)
+                },
+                MenuItem("go next page with fragment transition") {
+                    val action =
+                        NavigationUiSampleFragmentDirections.actionNavigationUiSampleFragmentToBottomNavigationFragment()
+                    findNavController().navigate(action, fragmentTransition)
+                },
+                MenuItem("go next with extra") {
+                    val action =
+                        NavigationUiSampleFragmentDirections.actionNavigationUiSampleFragmentToShareElement01Fragment()
+                    findNavController().navigate(action, fragmentTransition)
                 }
             )
         )

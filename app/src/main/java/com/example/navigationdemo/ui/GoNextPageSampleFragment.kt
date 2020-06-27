@@ -7,7 +7,6 @@ import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.navigationdemo.R
 import com.example.navigationdemo.base.BaseFragment
-import com.example.navigationdemo.defaultAnimOption
 import com.example.navigationdemo.entity.MenuItem
 import com.example.navigationdemo.ui.adapter.MenuListAdapter
 import com.example.navigationdemo.ui.target.viewmodel.TargetReturnArgViewModel
